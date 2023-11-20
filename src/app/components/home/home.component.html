@@ -1,3 +1,38 @@
-<div class="container">
-    <img src="../../../assets/images/home.png" width="50%" height="auto" alt="">
+<div class="container-fluid">
+    <img src="../../../assets/images/home.png" width="35%" height="auto" alt="">
+
+    <h1>Cubos</h1>
+    <div *ngIf="cubos">
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>idCubo</th>
+                    <th>Nombre</th>
+                    <th>Modelo</th>
+                    <th>Marca</th>
+                    <th>Color</th>
+                    <th>Imagen</th>
+                    <th>Precio</th>
+                    <th>Valoración</th>
+                    <th>Detalles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cubo of cubos">
+                    <td>{{cubo.idCubo}}</td>
+                    <td>{{cubo.nombre}}</td>
+                    <td>{{cubo.modelo}}</td>
+                    <td>{{cubo.marca}}</td>
+                    <td>{{cubo.color}}</td>
+                    <td><img src="{{cubo.imagen}}" width="25%"></td>   
+                    <td>{{cubo.precio}}</td>
+                    <td>{{cubo.valoracion}}</td>
+                    <td>
+                        <a class="btn btn-primary" [routerLink]="['/comentarios/', cubo.idCubo]" routerLinkActive="router-link-active" >Detalles</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>

@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>Login</h1>
+    <form #loginForm="ngForm" class="form-group">
+        <label class="form-label">Usuario</label>
+        <input type="text" #userName name="userName" class="form-control" /><br />
+        
+        <label class="form-label">Contraseña</label>
+        <input type="text" #password name="password" class="form-control" /><br />
+  
+        <button (click)="login()" class="btn btn-success ">Login</button><br />
+    </form>
+    <br>
+
+    <div *ngIf="!token">
+        <h1>Perfil Usuario</h1>
+        <div *ngFor="let user of users">
+            <h1></h1>
+            <h3>{{user}}</h3>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-6">
+                <a [routerLink]="['/']" class="btn btn-outline-primary btn-block col-md-6">Volver</a>
+            </div>
+            <div class="col-md-6">
+                <h2>Comprando...</h2>
+            </div>
+        </div>
+    
+        <form #compraForm="ngForm" (ngSubmit)="comprar()">
+    
+            <select class="form-select" #selectcubo name="selectcubo">
+                <option *ngFor="let cubo of cubos" value="{{cubo.idCubo}}">{{cubo.nombre}}</option>
+            </select>
+    
+            <button class="btn btn-success">Guardar</button>
+        </form>
+    </div>
+
+</div>

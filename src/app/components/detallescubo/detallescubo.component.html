@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Detalles de la marca </h2>
+    <div *ngIf="cubo">
+        <div *ngFor="let cu of cubo">
+            <!-- <h3>{{i}}</h3>  ; let i = index a-->
+            <p><strong>Nombre: </strong> {{cu.nombre}}</p>
+            <strong>Imagen: </strong> <img src="{{cu.imagen}}" width="25%" alt="">
+            <p style="color: blue"><strong>Precio: </strong> {{cu.precio}} €</p>
+             <a [routerLink]="['/comentarios/', cu.idCubo]" class="btn btn-primary" routerLinkActive="router-link-active">{{cu.nombre}}</a> 
+
+        </div>
+
+    </div>
+
+
+</div>
